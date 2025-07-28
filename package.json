@@ -1,6 +1,6 @@
 {
   "name": "labonneviz",
-  "version": "1.0.0",
+  "version": "1.0",
   "scripts": {
     "dev": "(web-ext run -u $(cat testurl.txt) &) && rspack build --watch",
     "build": "rspack build && web-ext build",
