@@ -10,4 +10,4 @@ Cette extension est très expérimentale pour le moment, à utiliser avec préca
 
 - Cliquer sur un marqueur puis changer la couleur et recliquer sur la carte laissera le marqueur blanc. Un second clic ou un rafraîchissement de la page est nécessaire pour afficher la nouvelle couleur.
 
-- À l'ouverture de la page, tous les marqueurs sont colorés en noir puis colorés un par un selon leur couleur attribuée (blanc par défaut). Il arrive que certains marqueurs restent noirs, cela signifie qu'ils n'ont pas été traités. Un clic dessus permet alors de rétablir leur couleur.
+- ~~À l'ouverture de la page, tous les marqueurs sont colorés en noir puis colorés un par un selon leur couleur attribuée (blanc par défaut). Il arrive que certains marqueurs restent noirs, cela signifie qu'ils n'ont pas été traités. Un clic dessus permet alors de rétablir leur couleur.~~ Corrigé (normalement)

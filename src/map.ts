@@ -63,13 +63,22 @@ class Map {
     async init() {
         this.observe();
 
-        for (const marker of markerPane.children) {
-            marker.querySelector("button")!.style.backgroundColor = "black";
-            marker.querySelector("button")!.style.color = "white";
+        const style = document.createElement("style");
+        style.innerHTML = `
+            .lbc-annotations-todo {
+                background-color: black;
+                color: white;
+            }
+        `;
+        document.querySelector("head")!.appendChild(style);
+
+        for (const marker of markerPane.querySelectorAll("button")) {
+            marker.classList.add("lbc-annotations-todo");
         }
 
         setTimeout(async () => {
-            for (const marker of markerPane.children) {
+            let marker;
+            while ((marker = markerPane.querySelector(".lbc-annotations-todo"))) {
                 marker.click();
                 await new Promise(r => setTimeout(r, 200));
             }
