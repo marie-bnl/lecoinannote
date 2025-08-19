@@ -3,8 +3,8 @@ import { rspack } from "@rspack/core";
 
 export default defineConfig({
 	entry: {
-		map: "./src/map.ts",
-		ad: "./src/ad.ts"
+		map: "./src/map/index.ts",
+		ad: "./src/ad/index.ts"
 	},
 	resolve: {
 		extensions: ["...", ".ts"]
@@ -29,8 +29,6 @@ export default defineConfig({
 		]
 	},
 	optimization: {
-		minimizer: [
-			new rspack.SwcJsMinimizerRspackPlugin()
-		]
+		minimizer: []
 	}
 });
