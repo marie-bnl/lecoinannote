@@ -1,5 +1,5 @@
 {
-  "name": "labonneviz",
+  "name": "lecoinannote",
   "version": "1.0",
   "scripts": {
     "dev": "(web-ext run -u $(cat testurl.txt) &) && rspack build --watch",
