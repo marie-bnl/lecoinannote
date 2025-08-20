@@ -11,14 +11,14 @@ class Map {
         const style = document.createElement("style");
         style.innerHTML = `
             .leaflet-marker-pane button {
-                --color-support: var(--lca-color, white);
-                --color-support-container: black;
-                background-color: var(--lca-color, white);
-                color: black;
+                --color-support: var(--lca-color, black);
+                --color-support-container: white;
+                background-color: var(--lca-color, black);
+                color: white;
             }
 
             [data-lca-todo] {
-                --lca-color: black;
+                --lca-color: grey;
             }
         `;
         document.querySelector("head")!.appendChild(style);
