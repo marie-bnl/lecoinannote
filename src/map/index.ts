@@ -61,11 +61,21 @@ class Map {
         });
     }
 
+    private addBackupLink() {
+        const link = document.createElement("a");
+        link.innerText = "Backup lecoinannoté";
+        link.addEventListener("click", () => {
+            browser.storage.local.get(null).then(data => { alert(JSON.stringify(data)) });
+        })
+        document.querySelector("footer")?.appendChild(link);
+    }
+
     private main() {
         this.addStyles();
         Storage.addListener(this.updateAll.bind(this));
         MarkerIdScanner.getMarkerIds().then(this.onScanFinished.bind(this));
         this.popupObserver.observe();
+        this.addBackupLink();
     }
 
     static main() {
