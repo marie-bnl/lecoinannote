@@ -6,7 +6,7 @@ export class Storage {
     static get(id) {
         return new Promise<TData>((resolve) => {
             storage.get(id).then(data => {
-                resolve(data[id] ?? { color: "#fff", text: "" });
+                resolve(data[id] ?? { color: "#ffffff", text: "" });
             });
         });
     }
