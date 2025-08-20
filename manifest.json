@@ -16,5 +16,11 @@
       "matches": ["*://*.leboncoin.fr/ad/*"],
       "js": ["ad.js"]
     }
-  ]
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@lecoinannote"
+    }
+  }
 }
