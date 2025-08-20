@@ -49,7 +49,7 @@ class Map {
     }
 
     private onNewPopup(popup) {
-        Storage.get(popup.id).then(data => {
+        Storage.get(popup.id).then(() => {
             const noteTree = (new DOMParser()).parseFromString(`
                 <div class="pb-lg px-lg text-body-2 text-on-surface">
                     <h4 class="font-bold">Notes</h4>
