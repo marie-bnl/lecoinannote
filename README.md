@@ -8,4 +8,6 @@ Sur la page d'une annonce, un encart permettant de personnaliser la note et la c
 
 Cette extension est très expérimentale pour le moment, à utiliser avec précaution.
 
-- ~~À l'ouverture de la page, tous les marqueurs sont colorés en noir puis colorés un par un selon leur couleur attribuée (blanc par défaut). Il arrive que certains marqueurs restent noirs, cela signifie qu'ils n'ont pas été traités. Un clic dessus permet alors de rétablir leur couleur.~~ Corrigé (normalement)
+Un lien est ajouté tout en bas de la page dans le footer intitulé "Backup lecoinannoté" pour enregistrer les données au cas où le stockage de l'extension est effacé ou altéré pour une raison inconnue. Un mécanisme de restauration des données n'a pas été développé, mais le sera si le cas se présente.
+
+À l'ouverture de la page, tous les marqueurs sont colorés en gris puis en noir une fois identifiés. Ne rien faire tant que tous les marqueurs ne sont pas colorés en noir. Si le chargement semble bloquer, cliquer sur un marqueur au hasard peut aider. Si tous les marqueurs restent blancs, recharger la page.
