@@ -38,7 +38,7 @@ class Map {
         let popup;
         if (popup = this.popupObserver.getCurrentPopup()) {
             Storage.get(popup.id).then(data => {
-                popup.article.querySelector("#lca-note")!.innerText = data.text;
+                popup.article.querySelector("#lca-note")!.innerText = data.text || "Vous n'avez pas encore annoté cette offre.";
             })
         }
     }
@@ -51,13 +51,13 @@ class Map {
     private onNewPopup(popup) {
         Storage.get(popup.id).then(data => {
             const noteTree = (new DOMParser()).parseFromString(`
-                <div id="lca-note" class="pb-lg px-lg text-body-2 text-on-surface">
+                <div class="pb-lg px-lg text-body-2 text-on-surface">
                     <h4 class="font-bold">Notes</h4>
-                    <span id="lca-note-text"></span>
+                    <span id="lca-note"></span>
                 </div>
             `, "text/html");
-            (noteTree.querySelector("#lca-note-text") as HTMLElement).innerText = data.text || "Vous n'avez pas encore annoté cette offre.";
             popup.article.appendChild(noteTree.body);
+            this.updateAll();
         });
     }
 
