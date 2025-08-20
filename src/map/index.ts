@@ -10,23 +10,22 @@ class Map {
     private addStyles() {
         const style = document.createElement("style");
         style.innerHTML = `
+            .leaflet-marker-pane button {
+                --color-support: var(--lca-color, white);
+                --color-support-container: black;
+                background-color: var(--lca-color, white);
+                color: black;
+            }
+
             [data-lca-todo] {
-                background-color: black;
-                color: white;
+                --lca-color: black;
             }
         `;
         document.querySelector("head")!.appendChild(style);
     }
 
     private setMarkerColor(marker, color) {
-        const style = document.createAttribute("style");
-        style.value = `
-            --color-support: ${color};
-            --color-support-container: black;
-            background-color: ${color};
-            color: black;
-        `;
-        marker.setAttributeNode(style);
+        marker.style.setProperty("--lca-color", color);
     }
 
     private updateAll() {
