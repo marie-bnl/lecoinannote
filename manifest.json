@@ -10,11 +10,11 @@
   "content_scripts": [
     {
       "matches": ["*://*.leboncoin.fr/carte/*"],
-      "js": ["dist/map.js"]
+      "js": ["map.js"]
     },
     {
       "matches": ["*://*.leboncoin.fr/ad/*"],
-      "js": ["dist/ad.js"]
+      "js": ["ad.js"]
     }
   ]
 }

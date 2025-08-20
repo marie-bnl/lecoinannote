@@ -28,6 +28,11 @@ export default defineConfig({
 			}
 		]
 	},
+	plugins: [
+		new rspack.CopyRspackPlugin({
+			patterns: [{ from: 'manifest.json' }],
+		})
+	],
 	optimization: {
 		minimizer: []
 	}
