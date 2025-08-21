@@ -1,3 +1,5 @@
+import noteHTML from "../../html/note";
+
 export class Map {
     private markersById;
 
@@ -24,12 +26,7 @@ export class Map {
     }
 
     addNoteSection() {
-        Map.currentPopup?.article.insertAdjacentHTML("beforeend", `
-            <div class="pb-lg px-lg text-body-2 text-on-surface">
-                <h4 class="font-bold">Notes</h4>
-                <span id="lca-note"></span>
-            </div>
-        `);
+        Map.currentPopup?.article.insertAdjacentHTML("beforeend", noteHTML);
     }
 
     setNoteText(text) {

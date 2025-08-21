@@ -3,11 +3,11 @@ import { rspack } from "@rspack/core";
 
 export default defineConfig({
 	entry: {
-		map: "./src/map.ts",
-		ad: "./src/ad.ts"
+		map: "./src/scripts/map.ts",
+		ad: "./src/scripts/ad.ts"
 	},
 	resolve: {
-		extensions: ["...", ".ts"]
+		extensions: ["...", ".ts", ".html"]
 	},
 	module: {
 		rules: [
@@ -25,14 +25,18 @@ export default defineConfig({
 						}
 					}
 				]
+			},
+			{
+				test: /\.html$/,
+				type: "asset/source"
 			}
 		]
 	},
 	plugins: [
 		new rspack.CopyRspackPlugin({
 			patterns: [
-				{ from: 'manifest.json' },
-				{ from: 'stylesheet.css' }
+				{ from: 'src/manifest.json' },
+				{ from: 'src/stylesheet.css' }
 			],
 		})
 	],

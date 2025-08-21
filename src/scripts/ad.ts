@@ -1,4 +1,5 @@
 import { STORAGE } from "./common";
+import editorHTML from "../html/editor";
 
 const id = window.location.pathname.split("/").splice(-1)[0];
 
@@ -9,18 +10,7 @@ function removeExistingSection() {
 }
 
 function addSection() {
-    const template = document.createElement("template");
-    template.innerHTML = `
-        <div id="lca-section" class="top-[100px] sticky bg-surface rounded-lg shadow-sm p-xl mb-xl gap-xl flex-col custom:flex">
-            <div class="flex flex-row">
-                <h2 class="text-headline-2">Notes</h2>
-                <div class="grow"></div>
-                <input id="lca-input-color" type="color" value="#000000" class="h-xl w-xl rounded-full outline-2">
-            </div>
-            <textarea id="lca-input-text" class="w-full" style="min-height: 150px;"></textarea>
-        </div>
-    `;
-    document.querySelector("#aside")!.appendChild(template.content.children[0]);
+    document.querySelector("#aside")!.insertAdjacentHTML("beforeend", editorHTML);
 }
 
 function getInputField(id) {
