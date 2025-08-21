@@ -2,9 +2,11 @@
 
 ## Unreleased
 
+## Release 1.3
+
 - Added restore link
 
-## 1.2
+## Release 1.2
 
 - Refactored code
 - Added loading screen

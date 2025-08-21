@@ -1,6 +1,6 @@
 {
   "name": "lecoinannote",
-  "version": "1.2",
+  "version": "1.4",
   "scripts": {
     "dev": "(web-ext -s dist run -u $(cat testurl.txt) &) && rspack build --watch",
     "build": "rspack build && web-ext -s dist build",
