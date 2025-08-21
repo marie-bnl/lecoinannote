@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "lecoinannote",
-  "version": "1.0",
+  "version": "1.2",
   "description": "Annoter les offres leboncoin.",
 
   "permissions": ["storage"],
@@ -21,7 +21,7 @@
 
   "browser_specific_settings": {
     "gecko": {
-      "id": "@lecoinannote"
+      "id": "{aa69174d-934a-42c2-aa5a-04975828506b}"
     }
   }
 }
