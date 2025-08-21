@@ -30,7 +30,10 @@ export default defineConfig({
 	},
 	plugins: [
 		new rspack.CopyRspackPlugin({
-			patterns: [{ from: 'manifest.json' }],
+			patterns: [
+				{ from: 'manifest.json' },
+				{ from: 'stylesheet.css' }
+			],
 		})
 	],
 	optimization: {
