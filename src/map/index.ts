@@ -65,7 +65,7 @@ class Map {
         const link = document.createElement("a");
         link.innerText = "Backup lecoinannoté";
         link.addEventListener("click", () => {
-            browser.storage.local.get(null).then(data => { alert(JSON.stringify(data)) });
+            Storage.getAll().then(data => { alert(JSON.stringify(data)) });
         })
         document.querySelector("footer")?.appendChild(link);
     }

@@ -11,6 +11,10 @@ export class Storage {
         });
     }
 
+    static getAll() {
+        return storage.get();
+    }
+
     static set(id, color, text) {
         storage.set({ [id]: { color, text } });
     }
