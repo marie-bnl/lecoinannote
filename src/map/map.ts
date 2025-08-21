@@ -24,13 +24,12 @@ export class Map {
     }
 
     addNoteSection() {
-        const tree = (new DOMParser()).parseFromString(`
+        Map.currentPopup?.article.insertAdjacentHTML("beforeend", `
             <div class="pb-lg px-lg text-body-2 text-on-surface">
                 <h4 class="font-bold">Notes</h4>
                 <span id="lca-note"></span>
             </div>
-        `, "text/html");
-        Map.currentPopup?.article.appendChild(tree.body);
+        `);
     }
 
     setNoteText(text) {
