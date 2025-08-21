@@ -2,15 +2,24 @@ import { STORAGE } from "./common";
 import { MarkerIdScanner } from "./map/id-scanner";
 import { Map } from "./map/map";
 import { MapUpdater } from "./map/updater";
-import loadingHTML from "../html/loading";
 
-function addBackupLink() {
-    const link = document.createElement("a");
-    link.innerText = "Backup lecoinannoté";
-    link.addEventListener("click", () => {
+import loadingHTML from "../html/loading";
+import footerHTML from "../html/footer";
+
+function addFooter() {
+    document.querySelector("footer")!.insertAdjacentHTML("beforeend", footerHTML);
+
+    document.querySelector("#lca-backup")!.addEventListener("click", () => {
         STORAGE.get().then(JSON.stringify).then(alert);
     });
-    document.querySelector("footer")?.appendChild(link);
+
+    document.querySelector("#lca-restore")!.addEventListener("click", () => {
+        const res = prompt();
+        if (res) {
+            STORAGE.set(JSON.parse(res));
+            location.reload();
+        }
+    });
 }
 
 function main() {
@@ -23,7 +32,7 @@ function main() {
         updater.observe();
     });
 
-    addBackupLink();
+    addFooter();
 }
 
 main();
