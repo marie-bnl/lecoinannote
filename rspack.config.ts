@@ -3,8 +3,8 @@ import { rspack } from "@rspack/core";
 
 export default defineConfig({
 	entry: {
-		map: "./src/map/index.ts",
-		ad: "./src/ad/index.ts"
+		map: "./src/map.ts",
+		ad: "./src/ad.ts"
 	},
 	resolve: {
 		extensions: ["...", ".ts"]

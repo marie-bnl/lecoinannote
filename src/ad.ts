@@ -1,4 +1,4 @@
-import { Storage } from "../storage";
+import { STORAGE } from "./common";
 
 const id = window.location.pathname.split("/").splice(-1)[0];
 
@@ -15,7 +15,7 @@ function addSection() {
             <div class="flex flex-row">
                 <h2 class="text-headline-2">Notes</h2>
                 <div class="grow"></div>
-                <input id="lca-input-color" type="color" class="h-xl w-xl rounded-full outline-2">
+                <input id="lca-input-color" type="color" value="#000000" class="h-xl w-xl rounded-full outline-2">
             </div>
             <textarea id="lca-input-text" class="w-full" style="min-height: 150px;"></textarea>
         </div>
@@ -28,9 +28,11 @@ function getInputField(id) {
 }
 
 function setData() {
-    Storage.get(id).then(data => {
-        getInputField("color").value = data.color;
-        getInputField("text").value = data.text;
+    STORAGE.get(id).then(data => {
+        if (id in data) {
+            getInputField("color").value = data[id].color;
+            getInputField("text").value = data[id].text;
+        }
     });
 }
 
@@ -39,7 +41,7 @@ function addEventListeners() {
         element.addEventListener("input", () => {
             const color = getInputField("color").value;
             const text = getInputField("text").value;
-            Storage.set(id, color, text);
+            STORAGE.set({ [id]: { color, text } });
         })
     }
 }

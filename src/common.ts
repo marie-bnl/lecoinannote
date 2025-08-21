@@ -1,0 +1,1 @@
+export const STORAGE = browser.storage.local;

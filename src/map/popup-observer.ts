@@ -1,25 +1,17 @@
+import { Map } from "./map";
+
 export class PopupObserver {
-    private lastId;
     private onNewPopup;
 
+    private lastId;
     private observer = new MutationObserver(this.onChange.bind(this));
 
     constructor(onNewPopup) {
         this.onNewPopup = onNewPopup;
     }
 
-    getCurrentPopup() {
-        const article = document.querySelector("article[data-test-id='map-ad-card']");
-        const id = article?.querySelector("a")?.href.split("/").slice(-1)[0];
-
-        if (!id)
-            return;
-
-        return { id, article };
-    }
-
     private onChange() {
-        const popup = this.getCurrentPopup();
+        const popup = Map.currentPopup;
 
         if (!popup) {
             this.lastId = null;

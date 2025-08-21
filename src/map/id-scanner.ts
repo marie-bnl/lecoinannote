@@ -3,7 +3,7 @@ import { PopupObserver } from "./popup-observer";
 const SCAN_INTERVAL_MS = 250;
 
 export class MarkerIdScanner {
-    private idToMarker = {};
+    private markersById = {};
 
     private observer = new PopupObserver(this.onNewPopup.bind(this));
 
@@ -19,7 +19,7 @@ export class MarkerIdScanner {
 
     private onNewPopup(popup) {
         const btn = this.getActiveMarkerBtn()!;
-        this.idToMarker[popup.id] = btn;
+        this.markersById[popup.id] = btn;
         btn.removeAttribute("data-lca-todo");
     }
 
@@ -44,7 +44,7 @@ export class MarkerIdScanner {
         return this.clickAllMarkers().then(() => {
             this.observer.disconnect();
             (document.querySelector("#leaflet-map") as HTMLElement).click();
-            return this.idToMarker;
+            return this.markersById;
         });
     }
 
