@@ -4,7 +4,8 @@ import { rspack } from "@rspack/core";
 export default defineConfig({
 	entry: {
 		map: "./src/scripts/map.ts",
-		ad: "./src/scripts/ad.ts"
+		ad: "./src/scripts/ad.ts",
+		stylesheet: "./src/stylesheet.less"
 	},
 	resolve: {
 		extensions: ["...", ".ts", ".html"]
@@ -13,22 +14,19 @@ export default defineConfig({
 		rules: [
 			{
 				test: /\.ts$/,
-				use: [
-					{
-						loader: "builtin:swc-loader",
-						options: {
-							jsc: {
-								parser: {
-									syntax: "typescript"
-								}
-							}
-						}
-					}
-				]
+				use: [ {
+					loader: "builtin:swc-loader",
+					options: { jsc: { parser: { syntax: "typescript" } } }
+				} ]
 			},
 			{
 				test: /\.html$/,
 				type: "asset/source"
+			},
+			{
+				test: /\.less$/,
+				use: 'less-loader',
+				type: 'css'
 			}
 		]
 	},
@@ -36,11 +34,13 @@ export default defineConfig({
 		new rspack.CopyRspackPlugin({
 			patterns: [
 				{ from: 'src/manifest.json' },
-				{ from: 'src/stylesheet.css' }
 			],
 		})
 	],
 	optimization: {
 		minimizer: []
-	}
+	},
+	experiments: {
+		css: true,
+	},
 });

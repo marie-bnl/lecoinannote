@@ -3,21 +3,28 @@
     z-index: 1000;
     top: 0; right: 0; bottom: 0; left: 0;
 
-    display: grid;
-    place-content: center;
-    gap: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 
-    background-color: black;
+    padding: 0 80px;
+
+    background: linear-gradient(to right, black, rgba(0, 0, 0, 0.801));
     color: white;
-    text-align: center;
-}
 
-#lca-loading * {
-    max-width: 80ch;
-}
+    main {
+        max-width: 60ch;
+        padding: 20px 40px;
 
-#lca-loading aside {
-    color: grey;
+        * {
+            margin: 1em 0;
+        }
+    }
+
+    aside {
+        color: lightgrey;
+    }
 }
 
 #lca-note:empty::before {
