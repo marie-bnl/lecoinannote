@@ -20,6 +20,11 @@
     color: grey;
 }
 
+#lca-note:empty::before {
+    content: attr(data-lca-placeholder);
+    color: grey;
+}
+
 .leaflet-marker-pane button {
     --color-support: var(--lca-color, black);
     --color-support-container: white;

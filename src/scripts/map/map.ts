@@ -31,6 +31,6 @@ export class Map {
 
     setNoteText(text) {
         const node = Map.currentPopup!.article.querySelector("#lca-note") as HTMLElement;
-        node.innerText = text || "Vous n'avez pas annoté cette offre.";
+        node.innerText = text;
     }
 }

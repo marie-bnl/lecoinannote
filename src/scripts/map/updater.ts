@@ -25,8 +25,8 @@ export class MapUpdater {
                 this.map.setMarkerColor(id, data[id].color);
 
             let popupId = Map.currentPopup?.id;
-            if (popupId)
-                this.map.setNoteText(data[popupId]?.text);
+            if (popupId && data[popupId])
+                this.map.setNoteText(data[popupId].text);
         });
     }
 
