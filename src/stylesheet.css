@@ -1,10 +1,11 @@
 #lca-loading {
-    position: absolute;
+    position: fixed;
     z-index: 1000;
     top: 0; right: 0; bottom: 0; left: 0;
 
     display: grid;
     place-content: center;
+    gap: 1em;
 
     background-color: black;
     color: white;
@@ -13,7 +14,6 @@
 
 #lca-loading * {
     max-width: 80ch;
-    margin: 1em 0;
 }
 
 #lca-loading aside {
