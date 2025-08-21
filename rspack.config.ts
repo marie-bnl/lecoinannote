@@ -1,11 +1,12 @@
 import { defineConfig } from "@rspack/cli";
 import { rspack } from "@rspack/core";
 
+import less from "less";
+
 export default defineConfig({
 	entry: {
 		map: "./src/scripts/map.ts",
-		ad: "./src/scripts/ad.ts",
-		stylesheet: "./src/stylesheet.less"
+		ad: "./src/scripts/ad.ts"
 	},
 	resolve: {
 		extensions: ["...", ".ts", ".html"]
@@ -34,6 +35,11 @@ export default defineConfig({
 		new rspack.CopyRspackPlugin({
 			patterns: [
 				{ from: 'src/manifest.json' },
+				{
+					from: 'src/stylesheet.less',
+					to: 'stylesheet.css',
+					transform: (x) => less.render(x.toString()).then<string>(o => o.css)
+				}
 			],
 		})
 	],
