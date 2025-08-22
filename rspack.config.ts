@@ -34,7 +34,7 @@ export default defineConfig({
 	plugins: [
 		new rspack.CopyRspackPlugin({
 			patterns: [
-				{ from: 'src/manifest.json' },
+				{ from: 'manifest.json' },
 				{ from: 'icons' },
 				{ from: 'src/loading.svg' },
 				{
