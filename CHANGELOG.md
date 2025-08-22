@@ -4,7 +4,7 @@
 
 ## Release 1.4
 
-- Fix loading screen gradient banding
+- Fixed loading screen gradient banding
 
 ## Release 1.3
 
