@@ -5,6 +5,7 @@
 ## Release 1.4
 
 - Fixed loading screen gradient banding
+- Added extension icons
 
 ## Release 1.3
 
