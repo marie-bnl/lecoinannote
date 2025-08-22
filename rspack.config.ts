@@ -35,6 +35,7 @@ export default defineConfig({
 		new rspack.CopyRspackPlugin({
 			patterns: [
 				{ from: 'src/manifest.json' },
+				{ from: 'src/loading.svg' },
 				{
 					from: 'src/stylesheet.less',
 					to: 'stylesheet.css',
