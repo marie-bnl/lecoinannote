@@ -3,7 +3,7 @@
   "version": "1.5",
   "scripts": {
     "dev": "(web-ext -s dist run -u $(cat testurl.txt) &) && rspack build --watch",
-    "build": "rspack build && web-ext -s dist build",
+    "build": "rspack build && web-ext -s dist build --overwrite-dest",
     "lint": "rspack build && web-ext -s dist lint",
     "clean": "rm -r dist web-ext-artifacts"
   },
