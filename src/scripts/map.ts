@@ -3,7 +3,6 @@ import { MarkerIdScanner } from "./map/id-scanner";
 import { Map } from "./map/map";
 import { MapUpdater } from "./map/updater";
 
-import loadingHTML from "../html/loading";
 import footerHTML from "../html/footer";
 
 function addFooter() {
@@ -23,10 +22,7 @@ function addFooter() {
 }
 
 function main() {
-    document.body.insertAdjacentHTML("beforeend", loadingHTML);
-
     MarkerIdScanner.getMarkerIds().then(markersById => {
-        document.querySelector("#lca-loading")!.remove();
         const updater = new MapUpdater(new Map(markersById));
         updater.update();
         updater.observe();

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add loading progress
+
 ## Release 1.4
 
 - Fixed loading screen gradient banding

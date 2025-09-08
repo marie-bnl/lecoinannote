@@ -1,14 +1,18 @@
 import { PopupObserver } from "./popup-observer";
+import { LoadingScreen } from "./loading";
 
 const SCAN_INTERVAL_MS = 250;
 
 export class MarkerIdScanner {
     private markersById = {};
 
+    private loading = new LoadingScreen();
     private observer = new PopupObserver(this.onNewPopup.bind(this));
 
     private labelMarkersTodo() {
-        for (const marker of document.querySelectorAll(".leaflet-marker-pane button")) {
+        const markers = document.querySelectorAll(".leaflet-marker-pane button");
+        this.loading.setTotal(markers.length);
+        for (const marker of markers) {
             marker.setAttribute("data-lca-todo", "1");
         }
     }
@@ -29,6 +33,7 @@ export class MarkerIdScanner {
             const interval = setInterval(() => {
                 if (marker = document.querySelector("[data-lca-todo]")) {
                     marker.click();
+                    this.loading.setProgress(Object.keys(this.markersById).length)
                 } else {
                     clearInterval(interval);
                     resolve();
@@ -38,12 +43,14 @@ export class MarkerIdScanner {
     }
 
     private scan() {
+        this.loading.show();
         this.labelMarkersTodo();
         this.observer.observe();
 
         return this.clickAllMarkers().then(() => {
             this.observer.disconnect();
             (document.querySelector("#leaflet-map") as HTMLElement).click();
+            this.loading.delete();
             return this.markersById;
         });
     }
