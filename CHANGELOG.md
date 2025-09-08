@@ -2,7 +2,9 @@
 
 ## Unreleased
 
-- Add loading progress
+## Release 1.5
+
+- Added loading progress
 
 ## Release 1.4
 
